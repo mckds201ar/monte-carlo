@@ -14,8 +14,10 @@ class Experiment:
 
     def flip_coin_5x_ntimes(self, n, success):
         c = Coin()
-        experiments = [sum((c.flip(), c.flip(), c.flip(), c.flip(), c.flip())
-                           == success) for _ in range(n)]
+        experiments = [([c.flip(), c.flip(), c.flip(), c.flip(), c.flip()]
+                        == success) for _ in range(n)]
+
+        print(experiments)
         return sum(experiments) / n
 
     def flip_coin_with_pattern_n_time(self, pattern, n, flips):
